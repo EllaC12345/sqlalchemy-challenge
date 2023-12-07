@@ -41,26 +41,19 @@ app = Flask(__name__)
 # Flask Routes
 #################################################
 @app.route("/")
-def home():
-    return(
+def welcome():
+    """List all available api routes."""
+    return (
         f"Available Routes:<br/>"
         f"/api/v1.0/precipitation<br/>"
-        f"/api/v1.0/stations<br/>"
-        f"/api/v1.0/tobs<br/>"
+        f"/api/v1.0/stations"
+        f"/api/v1.0/tobs"
+        f"/api/v1.0/<start>"
+        f"/api/v1.0/<start>/<end>"
     )
 
-@app.route("/api/v1.0/precipitation")
-def precipitation():
-    pass
-
-@app.route("/api/v1.0/stations")
-def stations():
-    pass
-
-@app.route("/api/v1.0/tobs")
-def tobs():
-    pass
-
-# Run the Flask app
+#################################################
+# Run Flask App
+#################################################
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=True, port=5001)
